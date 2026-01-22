@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Astrology Consultation - जीवन की समस्याओं का समाधान</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* 1. CSS RESET & BASIC STYLING */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            background-color: #0c0a1d;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* 2. BACKGROUND WITH OVERLAY */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://resize.indiatvnews.com/en/resize/newbucket/1080_-/2023/12/astro-24-1703355475.jpg') center/cover no-repeat fixed;
+            opacity: 0.35;
+            z-index: -2;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(12, 10, 29, 0.85) 0%, rgba(44, 27, 79, 0.75) 100%);
+            z-index: -1;
+        }
+        
+        /* 3. MAIN CONTAINER */
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* 4. CARD DESIGN */
+        .card {
+            background: rgba(22, 18, 46, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 22px;
+            border: 1px solid rgba(149, 117, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* 5. HEADER & PROFILE */
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(149, 117, 255, 0.2);
+        }
+        
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #9575ff;
+            margin-bottom: 18px;
+            box-shadow: 0 0 25px rgba(149, 117, 255, 0.4);
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        
+        .title {
+            color: #d0bcff;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .experience {
+            color: #ffcc80;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        
+        /* 6. CONTACT CARD - HIGHLIGHTED */
+        .contact-card {
+            background: linear-gradient(135deg, rgba(149, 117, 255, 0.15), rgba(103, 58, 183, 0.1));
+            border: 1px solid rgba(149, 117, 255, 0.3);
+            text-align: center;
+        }
+        
+        .phone-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffcc80;
+            margin: 15px 0;
+            direction: ltr;
+        }
+        
+        .phone-icon {
+            font-size: 2rem;
+        }
+        
+        .call-text {
+            font-size: 1.1rem;
+            color: #d0bcff;
+            margin-bottom: 10px;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(90deg, #25D366, #1da851);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+        }
+        
+        /* 7. SERVICES SECTION */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #ffcc80;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .service-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(149, 117, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .service-item:hover {
+            background: rgba(149, 117, 255, 0.1);
+            border-color: rgba(149, 117, 255, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            font-size: 2rem;
+            color: #9575ff;
+            margin-bottom: 10px;
+        }
+        
+        .service-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+        
+        .service-desc {
+            font-size: 0.85rem;
+            color: #b0b0b0;
+        }
+        
+        /* 8. TESTIMONIAL */
+        .testimonial {
+            font-style: italic;
+            color: #d0bcff;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid rgba(149, 117, 255, 0.2);
+            margin-top: 20px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .client-name {
+            color: #ffcc80;
+            font-weight: 600;
+            margin-top: 10px;
+            font-style: normal;
+        }
+        
+        /* 9. FOOTER */
+        .footer {
+            text-align: center;
+            padding-top: 20px;
+            color: #a0a0a0;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+        
+        /* 10. RESPONSIVE DESIGN */
+        @media (max-width: 550px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .card {
+                padding: 22px;
+            }
+            
+            h1 {
+                font-size: 1.7rem;
+            }
+            
+            .phone-number {
+                font-size: 1.6rem;
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .services {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 11. ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .contact-card {
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+        
+        .services {
+            animation: fadeIn 0.8s ease-out 0.4s both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER & PROFILE SECTION -->
+        <div class="card header">
+            <img src="https://images.news9live.com/wp-content/uploads/2023/07/horoscope-july-10.jpg?w=1200&enlarge=true" alt="Astrologer" class="profile-img">
+            <h1>Expert Astrology Consultation</h1>
+            <p class="title">Vedic Astrologer & Life Guide</p>
+            <p class="experience">25+ साल का अनुभव | 10,000+ संतुष्ट clients</p>
+        </div>
+        
+        <!-- CONTACT CARD -->
+        <div class="card contact-card">
+            <p class="call-text">फ्री परामर्श के लिए अभी कॉल करें</p>
+            <div class="phone-number">
+                <span class="phone-icon">📞</span>
+                <span>92642 65506</span>
+            </div>
+            <p style="color: #b0b0b0; margin-bottom: 10px; font-size: 0.95rem;">
+                24x7 उपलब्ध | पहली बातचीत फ्री
+            </p>
+            <a href="https://wa.me/919264265506?text=नमस्ते,%20मैं%20आपसे%20ज्योतिष%20परामर्श%20लेना%20चाहता%20हूँ" class="whatsapp-btn" target="_blank">
+                <span style="font-size: 1.3rem;">💬</span> WhatsApp पर बात करें
+            </a>
+        </div>
+        
+        <!-- SERVICES SECTION -->
+        <div class="card">
+            <h2>मेरी सेवाएं</h2>
+            <div class="services">
+                <div class="service-item">
+                    <div class="service-icon">💑</div>
+                    <div class="service-name">Love & Marriage</div>
+                    <div class="service-desc">विवाह, प्रेम संबंध, मिलान</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">💼</div>
+                    <div class="service-name">Career Problems</div>
+                    <div class="service-desc">नौकरी, बिजनेस, करियर गाइडेंस</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🏠</div>
+                    <div class="service-name">Vastu Shastra</div>
+                    <div class="service-desc">घर-ऑफिस की सही दिशा</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🌠</div>
+                    <div class="service-name">Horoscope</div>
+                    <div class="service-desc">कुंडली विश्लेषण, भविष्यवाणी</div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                "मेरी नौकरी लगभग 2 साल से नहीं लग रही थी। आचार्य जी ने सही मार्गदर्शन दिया और 3 महीने में ही मुझे अच्छी नौकरी मिल गई।"
+                <div class="client-name">- रितिक शर्मा, दिल्ली</div>
+            </div>
+        </div>
+        
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>⏰ समय: सुबह 8:00 बजे से रात 10:00 बजे तक</p>
+            <p>📍 सभी शहरों के लिए फोन पर परामर्श उपलब्ध</p>
+            <div class="disclaimer">
+                ज्योतिषीय सलाह मार्गदर्शन के लिए है। किसी भी निर्णय से पहले अपनी बुद्धि और विवेक का प्रयोग करें।
+            </div>
+        </div>
+    </div>
+
+    <!-- MINIMAL JAVASCRIPT FOR INTERACTIONS -->
+    <script>
+        // Simple phone number click interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneNumber = document.querySelector('.phone-number span:nth-child(2)');
+            if(phoneNumber) {
+                phoneNumber.addEventListener('click', function() {
+                    window.location.href = 'tel:+919264265506';
+                });
+                
+                // Add clickable style
+                phoneNumber.style.cursor = 'pointer';
+                phoneNumber.style.textDecoration = 'underline';
+                phoneNumber.style.textDecorationStyle = 'dotted';
+            }
+            
+            // WhatsApp button click tracking
+            const whatsappBtn = document.querySelector('.whatsapp-btn');
+            if(whatsappBtn) {
+                whatsappBtn.addEventListener('click', function() {
+                    console.log('WhatsApp button clicked');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
